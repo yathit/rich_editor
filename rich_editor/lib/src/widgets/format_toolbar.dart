@@ -1,11 +1,13 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart' hide DropdownButton, DropdownMenuItem;
 import 'package:flutter_logger/flutter_logger.dart';
-import 'package:material_color_picker/material_color_picker.dart';
+import 'package:rich_editor/material_pickers.dart';
 import 'package:rich_editor/src/extensions.dart';
 import 'package:rich_editor/src/material/dropdown.dart';
 import 'package:rich_editor/src/material/rich_text_field.dart';
 import 'package:rich_editor/src/widgets/rich_editable_text.dart';
+
+export '../color/dropdown.dart' show ColorPickerButton;
 
 const double _defaultFontSize = 16.0;
 const FontItem _defaultFont = const FontItem(
@@ -18,8 +20,7 @@ class FormatToolbar extends StatefulWidget {
   FormatToolbar({
     @required StyleController styleController,
     @required GlobalKey<RichTextFieldState> richTextFieldState,
-  })
-      : _styleController = styleController,
+  })  : _styleController = styleController,
         _richTextFieldState = richTextFieldState;
 
   final StyleController _styleController;

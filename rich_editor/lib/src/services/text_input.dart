@@ -94,13 +94,11 @@ class RichTextEditingValue extends AbstractTextEditingValue<TextSpan> {
     String newText =
         selection.textBefore(plainText) + selection.textAfter(plainText);
 
-    return RichTextEditingValueParser
-        .parse(
-          oldValue: this,
-          newValue: copyWith(value: new TextSpan(text: newText)),
-          style: null,
-        )
-        .value;
+    return RichTextEditingValueParser.parse(
+      oldValue: this,
+      newValue: copyWith(value: new TextSpan(text: newText)),
+      style: null,
+    ).value;
   }
 
   @override
@@ -355,7 +353,7 @@ class TextInput {
     _clientHandler._currentConnection = connection;
     SystemChannels.textInput.invokeMethod(
       'TextInput.setClient',
-      <dynamic>[connection._id, configuration.toJSON()],
+      <dynamic>[connection._id, configuration.toJson()],
     );
     return connection;
   }

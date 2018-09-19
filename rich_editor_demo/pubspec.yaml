@@ -8,9 +8,16 @@ dependencies:
   rich_editor:
     path: ../rich_editor
 
-  cupertino_icons: ^0.1.0
+  cupertino_icons: any
 
 
 flutter:
 
   uses-material-design: true
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+environment:
+  sdk: ">=2.0.0 <3.0.0"

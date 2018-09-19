@@ -113,8 +113,7 @@ class RenderRichEditable extends RenderBox {
     @required ViewportOffset offset,
     this.onSelectionChanged,
     this.onCaretChanged,
-  })
-      : assert(textAlign != null),
+  })  : assert(textAlign != null),
         assert(textDirection != null,
             'RenderEditable created without a textDirection.'),
         assert(maxLines == null || maxLines > 0),
@@ -417,13 +416,13 @@ class RenderRichEditable extends RenderBox {
 
   @override
   double computeMinIntrinsicWidth(double height) {
-    _layoutText(double.INFINITY);
+    _layoutText(double.infinity);
     return _textPainter.minIntrinsicWidth;
   }
 
   @override
   double computeMaxIntrinsicWidth(double height) {
-    _layoutText(double.INFINITY);
+    _layoutText(double.infinity);
     return _textPainter.maxIntrinsicWidth;
   }
 
@@ -432,7 +431,7 @@ class RenderRichEditable extends RenderBox {
 
   double _preferredHeight(double width) {
     if (maxLines != null) return _preferredLineHeight * maxLines;
-    if (width == double.INFINITY) {
+    if (width == double.infinity) {
       final String text = _textPainter.text.toPlainText();
       int lines = 1;
       for (int index = 0; index < text.length; index += 1) {
@@ -521,7 +520,7 @@ class RenderRichEditable extends RenderBox {
     if (_textLayoutLastWidth == constraintWidth) return;
     final double caretMargin = _kCaretGap + _kCaretWidth;
     final double availableWidth = math.max(0.0, constraintWidth - caretMargin);
-    final double maxWidth = _isMultiline ? availableWidth : double.INFINITY;
+    final double maxWidth = _isMultiline ? availableWidth : double.infinity;
     _textPainter.layout(minWidth: availableWidth, maxWidth: maxWidth);
     _textLayoutLastWidth = constraintWidth;
   }
@@ -529,8 +528,7 @@ class RenderRichEditable extends RenderBox {
   Rect _caretPrototype;
 
   setCaretPrototype() {
-    var fontSize = Extensions
-            .getSpanForPosition(text, selection.start + 1)
+    var fontSize = Extensions.getSpanForPosition(text, selection.start + 1)
             ?.style
             ?.fontSize ??
         16.0;
@@ -542,7 +540,7 @@ class RenderRichEditable extends RenderBox {
   }
 
   double findMax(List vals) {
-    double max = double.NEGATIVE_INFINITY;
+    double max = double.negativeInfinity;
 
     for (double d in vals) {
       if (d == null) continue;

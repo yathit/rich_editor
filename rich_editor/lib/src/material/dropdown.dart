@@ -21,8 +21,7 @@ class _DropdownMenuPainter extends CustomPainter {
     this.elevation,
     this.selectedIndex,
     this.resize,
-  })
-      : _painter = new BoxDecoration(
+  })  : _painter = new BoxDecoration(
                 // If you add an image here, you must provide a real
                 // configuration in the paint() function and you must provide some sort
                 // of onChanged callback here.
@@ -93,8 +92,7 @@ class _DropdownMenu<T> extends StatefulWidget {
   const _DropdownMenu({
     Key key,
     this.route,
-  })
-      : super(key: key);
+  }) : super(key: key);
 
   final _DropdownRoute<T> route;
 
@@ -272,8 +270,7 @@ class _DropdownRoute<T> extends PopupRoute<_DropdownRouteResult<T>> {
     this.elevation: 8,
     this.theme,
     @required this.style,
-  })
-      : assert(style != null);
+  }) : assert(style != null);
 
   final List<DropdownMenuItem<T>> items;
   final Rect buttonRect;
@@ -341,6 +338,10 @@ class _DropdownRoute<T> extends PopupRoute<_DropdownRouteResult<T>> {
   void _dismiss() {
     navigator?.removeRoute(this);
   }
+
+  // TODO: implement barrierLabel
+  @override
+  String get barrierLabel => 'barrier';
 }
 
 /// An item in a menu created by a [DropdownButton].
@@ -355,8 +356,7 @@ class DropdownMenuItem<T> extends StatelessWidget {
     Key key,
     this.value,
     @required this.child,
-  })
-      : assert(child != null),
+  })  : assert(child != null),
         super(key: key);
 
   /// The widget below this widget in the tree.
@@ -391,8 +391,7 @@ class DropdownButtonHideUnderline extends InheritedWidget {
   const DropdownButtonHideUnderline({
     Key key,
     @required Widget child,
-  })
-      : assert(child != null),
+  })  : assert(child != null),
         super(key: key, child: child);
 
   /// Returns whether the underline of [DropdownButton] widgets should
@@ -444,8 +443,7 @@ class DropdownButton<T> extends StatefulWidget {
     this.style,
     this.iconSize: 24.0,
     this.isDense: false,
-  })
-      : assert(items != null),
+  })  : assert(items != null),
         assert(value == null ||
             items
                     .where((DropdownMenuItem<T> item) => item.value == value)
@@ -571,8 +569,7 @@ class _DropdownButtonState<T> extends State<DropdownButton<T>>
       style: _textStyle,
     );
 
-    Navigator
-        .push(context, _dropdownRoute)
+    Navigator.push(context, _dropdownRoute)
         .then<Null>((_DropdownRouteResult<T> newValue) {
       _dropdownRoute = null;
       if (!mounted || newValue == null) return null;

@@ -68,8 +68,7 @@ class _TextSelectionToolbar extends StatelessWidget {
     this.handleCopy,
     this.handlePaste,
     this.handleSelectAll,
-  })
-      : super(key: key);
+  }) : super(key: key);
 
   final TextSelectionDelegate delegate;
 
@@ -283,7 +282,7 @@ class _CupertinoTextSelectionControls extends TextSelectionControls {
       case TextSelectionHandleType
           .left: // The left handle is upside down on iOS.
         return new Transform(
-            transform: new Matrix4.rotationZ(math.PI)
+            transform: new Matrix4.rotationZ(math.pi)
               ..translate(-_kHandlesPadding, -_kHandlesPadding),
             child: handle);
       case TextSelectionHandleType.right:

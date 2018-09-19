@@ -183,8 +183,7 @@ class RichEditableText extends StatefulWidget {
     this.onChanged,
     this.onSubmitted,
     this.onSelectionChanged,
-  })
-      : assert(controller != null),
+  })  : assert(controller != null),
         assert(focusNode != null),
         assert(autocorrect != null),
         assert(style != null),
@@ -461,6 +460,8 @@ class RichEditableTextState extends State<RichEditableText>
         break;
       case TextInputAction.newline:
         // Do nothing for a "newline" action: the newline is already inserted.
+        break;
+      default:
         break;
     }
   }
@@ -814,8 +815,7 @@ class _RichEditable extends LeafRenderObjectWidget {
     this.offset,
     this.onSelectionChanged,
     this.onCaretChanged,
-  })
-      : assert(textDirection != null),
+  })  : assert(textDirection != null),
         super(key: key);
 
   final RichTextEditingValue editingValue;
@@ -870,7 +870,7 @@ class _RichEditable extends LeafRenderObjectWidget {
       ..onSelectionChanged = onSelectionChanged
       ..onCaretChanged = onCaretChanged;
 
-    renderObject.setCaretPrototype(currentStyle.fontSize);
+    renderObject.setCaretPrototype(/*currentStyle.fontSize*/);
   }
 
   TextSpan get _styledTextSpan {
